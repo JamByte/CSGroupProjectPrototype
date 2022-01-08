@@ -50,7 +50,7 @@ public class Main
          Entry<String, Flight> entry = entrySet.next();
          
          LocalDateTime datetime = LocalDateTime.of(entry.getValue().DateOfFlight.getYear(),entry.getValue().DateOfFlight.getMonth(), entry.getValue().DateOfFlight.getDayOfMonth(),   entry.getValue().DepartureTime.getHour(), entry.getValue().DepartureTime.getMinute(), 0);
-         long time = datetime.until(currenttime, ChronoUnit.HOURS);
+         long time = currenttime.until(datetime, ChronoUnit.HOURS);
 
          if(time < 24 && time>0){
             FlightData.FlightsToday.put(entry.getKey(), entry.getValue());
